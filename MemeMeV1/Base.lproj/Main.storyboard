@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -21,6 +22,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rx0-Ol-5M4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="20" y="21" width="560" height="736"/>
+                                </variation>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwW-gr-84i">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -72,19 +76,19 @@
                                 <exclude reference="uk3-mF-f6q"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Nt8-H3-Q6o"/>
-                                <exclude reference="RPA-aT-CeF"/>
-                                <exclude reference="evQ-4N-vI6"/>
+                                <exclude reference="dam-wd-XaL"/>
+                                <exclude reference="QJU-hB-RAR"/>
+                                <exclude reference="uIL-e9-2jz"/>
                                 <exclude reference="kKV-ww-1BP"/>
                                 <exclude reference="laS-WE-e2L"/>
                                 <exclude reference="rsL-7p-hjH"/>
-                                <exclude reference="QJU-hB-RAR"/>
-                                <exclude reference="uIL-e9-2jz"/>
                                 <exclude reference="0pV-lX-MTY"/>
                                 <exclude reference="1N7-cY-m7S"/>
                                 <exclude reference="PXb-bm-3lY"/>
                                 <exclude reference="tjP-vr-bcS"/>
-                                <exclude reference="dam-wd-XaL"/>
+                                <exclude reference="Nt8-H3-Q6o"/>
+                                <exclude reference="RPA-aT-CeF"/>
+                                <exclude reference="evQ-4N-vI6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -95,22 +99,28 @@
                                 <include reference="uk3-mF-f6q"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Nt8-H3-Q6o"/>
-                                <include reference="RPA-aT-CeF"/>
-                                <include reference="evQ-4N-vI6"/>
+                                <include reference="dam-wd-XaL"/>
+                                <include reference="QJU-hB-RAR"/>
+                                <include reference="uIL-e9-2jz"/>
                                 <include reference="kKV-ww-1BP"/>
                                 <include reference="laS-WE-e2L"/>
                                 <include reference="rsL-7p-hjH"/>
-                                <include reference="QJU-hB-RAR"/>
-                                <include reference="uIL-e9-2jz"/>
                                 <include reference="0pV-lX-MTY"/>
                                 <include reference="1N7-cY-m7S"/>
                                 <include reference="PXb-bm-3lY"/>
                                 <include reference="tjP-vr-bcS"/>
-                                <include reference="dam-wd-XaL"/>
+                                <include reference="Nt8-H3-Q6o"/>
+                                <include reference="RPA-aT-CeF"/>
+                                <include reference="evQ-4N-vI6"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="bottomTextField" destination="KDl-xY-QwX" id="NWJ-eh-rbs"/>
+                        <outlet property="cameraButton" destination="kg3-Jk-Syo" id="iU6-sT-6tf"/>
+                        <outlet property="imagePickerView" destination="rx0-Ol-5M4" id="1Bl-7N-IQY"/>
+                        <outlet property="topTextField" destination="uk3-mF-f6q" id="3kv-WN-biH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
