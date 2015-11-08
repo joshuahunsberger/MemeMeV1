@@ -16,10 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
-    
     override func viewWillAppear(animated: Bool) {
-
+        // Disable camera button if camera not available on device
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
+        
     }
 
+    
 }
 
