@@ -32,17 +32,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes
         
-        // Center text in text fields
-        topTextField.textAlignment = NSTextAlignment.Center
-        bottomTextField.textAlignment = NSTextAlignment.Center
-        
         // Set text fields to clear when selected
         topTextField.clearsOnBeginEditing = true
         bottomTextField.clearsOnBeginEditing = true
-        
+            
+    }
+    
+    override func viewDidLoad() {
         // Set default text for the labels
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
+        
+        // Center text in text fields
+        topTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.textAlignment = NSTextAlignment.Center
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
