@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rx0-Ol-5M4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rx0-Ol-5M4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                             </imageView>
@@ -53,12 +53,16 @@
                         <constraints>
                             <constraint firstItem="bwW-gr-84i" firstAttribute="top" secondItem="rx0-Ol-5M4" secondAttribute="bottom" id="0pV-lX-MTY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bwW-gr-84i" secondAttribute="trailing" constant="-20" id="1N7-cY-m7S"/>
-                            <constraint firstItem="rx0-Ol-5M4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Nt8-H3-Q6o"/>
+                            <constraint firstItem="rx0-Ol-5M4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Nt8-H3-Q6o">
+                                <variation key="heightClass=regular" constant="20"/>
+                            </constraint>
                             <constraint firstItem="bwW-gr-84i" firstAttribute="top" secondItem="KDl-xY-QwX" secondAttribute="bottom" constant="150" id="PXb-bm-3lY">
                                 <variation key="heightClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="KDl-xY-QwX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QJU-hB-RAR"/>
-                            <constraint firstItem="rx0-Ol-5M4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RPA-aT-CeF"/>
+                            <constraint firstItem="rx0-Ol-5M4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RPA-aT-CeF">
+                                <variation key="heightClass=regular" constant="-20"/>
+                            </constraint>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bwW-gr-84i" secondAttribute="bottom" id="dam-wd-XaL"/>
                             <constraint firstItem="rx0-Ol-5M4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="evQ-4N-vI6"/>
                             <constraint firstItem="uk3-mF-f6q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="82" id="kKV-ww-1BP">
