@@ -55,6 +55,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // Fuction called when image picker is cancelled
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        // Dismiss the image picker
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // Display UIImagePicker for the photo library
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
