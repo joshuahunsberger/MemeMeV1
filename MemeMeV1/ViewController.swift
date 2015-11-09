@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // Define IBOutlet variables
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -44,7 +44,24 @@ class ViewController: UIViewController {
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
     }
-
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        // Get original image and display it in the imagePickerView
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imagePickerView.image = image
+            
+        }
+        
+        // Dismiss image picker
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
     
 }
 
