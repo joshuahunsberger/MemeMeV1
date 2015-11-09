@@ -49,13 +49,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Get original image and display it in the imagePickerView
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
-            
         }
         
         // Dismiss image picker
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // Display UIImagePicker for the photo library
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -63,5 +63,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    // Display UIImagePicker with the source as the camera
+    @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
 }
 

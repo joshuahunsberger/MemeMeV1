@@ -27,7 +27,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <animations/>
                                 <items>
-                                    <barButtonItem title="Camera" id="kg3-Jk-Syo"/>
+                                    <barButtonItem title="Camera" id="kg3-Jk-Syo">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="5tA-Jt-P3C"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Album" id="WVW-NU-8x1">
                                         <connections>
                                             <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="OJV-HH-vhD"/>
