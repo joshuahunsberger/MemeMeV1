@@ -24,6 +24,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName : -3.0,  // A negative value allows displaying both a fill and stroke
     ]
     
+    // Text field delegate
+    let memeMeTextFieldDelegate = MemeMeTextFieldDelegate()
+    
+    /* Life cycle functions */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        topTextField.delegate = memeMeTextFieldDelegate
+        bottomTextField.delegate = memeMeTextFieldDelegate
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
