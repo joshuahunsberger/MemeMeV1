@@ -95,6 +95,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         view.frame.origin.y -= getKeyboardHeight(notification)
     }
     
+    func keyboardWillHide(notification: NSNotification){
+        view.frame.origin.y += getKeyboardHeight(notification)
+    }
+    
     // Function to get height of keyboard
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
@@ -105,11 +109,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Function to set up keyboard notification subscription
     func subscribeToKeyboardNotifications(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
 
     // Function to tear down keyboard notification subscription
     func unsubscribeFromKeyboardNotifications(){
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     
