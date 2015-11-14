@@ -12,6 +12,7 @@
 		422354F11BEF9A5100A2EAEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422354EF1BEF9A5100A2EAEE /* Main.storyboard */; };
 		422354F31BEF9A5100A2EAEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422354F21BEF9A5100A2EAEE /* Assets.xcassets */; };
 		422354F61BEF9A5100A2EAEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422354F41BEF9A5100A2EAEE /* LaunchScreen.storyboard */; };
+		4290F4271BF789FE00DF3A25 /* MemeMeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4290F4261BF789FE00DF3A25 /* MemeMeTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		422354F21BEF9A5100A2EAEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		422354F51BEF9A5100A2EAEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		422354F71BEF9A5100A2EAEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4290F4261BF789FE00DF3A25 /* MemeMeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeMeTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				422354EB1BEF9A5100A2EAEE /* AppDelegate.swift */,
 				422354ED1BEF9A5100A2EAEE /* ViewController.swift */,
+				4290F4261BF789FE00DF3A25 /* MemeMeTextFieldDelegate.swift */,
 				422354EF1BEF9A5100A2EAEE /* Main.storyboard */,
 				422354F21BEF9A5100A2EAEE /* Assets.xcassets */,
 				422354F41BEF9A5100A2EAEE /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				422354EE1BEF9A5100A2EAEE /* ViewController.swift in Sources */,
+				4290F4271BF789FE00DF3A25 /* MemeMeTextFieldDelegate.swift in Sources */,
 				422354EC1BEF9A5100A2EAEE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +291,7 @@
 				422354FC1BEF9A5100A2EAEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
