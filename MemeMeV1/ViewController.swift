@@ -39,7 +39,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         
         // Disable camera button if camera not available on device
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
@@ -59,14 +59,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Set text fields to clear when selected
         topTextField.clearsOnBeginEditing = true
         bottomTextField.clearsOnBeginEditing = true
-            
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        //unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
+    
+    
+    /* ImagePickerController functions */
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // Get original image and display it in the imagePickerView
@@ -84,6 +87,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    /* Keyboard shifting functions */
+    
     // Function to call when notification triggered
     func keyboardWillShow(notification: NSNotification){
         view.frame.origin.y -= getKeyboardHeight(notification)
@@ -98,13 +104,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Function to set up keyboard notification subscription
     func subscribeToKeyboardNotifications(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     }
 
     // Function to tear down keyboard notification subscription
     func unsubscribeFromKeyboardNotifications(){
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
     }
+    
+    
+    /* Interface Builder Action functions */
     
     // Display UIImagePicker for the photo library
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
