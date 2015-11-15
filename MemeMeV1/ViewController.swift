@@ -92,11 +92,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Function to call when notification triggered
     func keyboardWillShow(notification: NSNotification){
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if(bottomTextField.editing){
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification){
-        view.frame.origin.y += getKeyboardHeight(notification)
+        if(bottomTextField.editing){
+            view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     
     // Function to get height of keyboard
