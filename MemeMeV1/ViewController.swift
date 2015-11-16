@@ -133,18 +133,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     */
     func generateImageMacro() -> UIImage {
         
-        // Hide toolbar, so it is not in saved image
+        // Hide toolbar and navigation controller, so they are not in saved image
         toolbar.hidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
-        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let imageMacro : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // Unhide the toolbar after capturing the image
+        // Unhide the toolbar and navigation controller after capturing the image
         toolbar.hidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
 
-        return memedImage
+        return imageMacro
     }
     
     /* Interface Builder Action functions */
