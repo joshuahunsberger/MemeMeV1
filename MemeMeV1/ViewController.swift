@@ -77,8 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     /* ImagePickerController functions */
     
     /**
-        Sets the imagePickerView's image to the image selected in the modal image
-        chooser
+        Sets the imagePickerView's image to the image selected in the modal image picker
     */
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // Get original image and display it in the imagePickerView
@@ -110,6 +109,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         This method is called when the UIKeyboardWillShowNotification is triggered
     */
     func keyboardWillShow(notification: NSNotification){
+        
+        // TODO: Handle adjusting QuickType suggestion bar
+        
         if(bottomTextField.editing){
             view.frame.origin.y -= getKeyboardHeight(notification)
         }
@@ -203,10 +205,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /**
-        Displays options to the user to share the image macro "meme"
+        Generates an image from the screen and displays options to the user to share the image macro "meme"
     */
     @IBAction func shareMeme(sender: UIBarButtonItem) {
-    
+        let imageMacro = generateImageMacro()
+        
+        let shareController = UIActivityViewController(activityItems: [imageMacro], applicationActivities: nil)
+        
+        // Save meme and dismiss activity view controller
+        shareController.completionWithItemsHandler = {(activityType: String?, completed: Bool, returnedItems: [AnyObject]?, activityError: NSError?) in
+            let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imagePickerView.image!, memeImage: imageMacro)
+            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        }
+        self.navigationController?.presentViewController(shareController, animated: true, completion: nil)
+        
     }
 }
 
