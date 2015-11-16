@@ -125,12 +125,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="hLA-hD-OLL">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="action" id="PdF-8w-TZ6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="PdF-8w-TZ6">
                             <connections>
                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="YdH-kG-R59"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="vhf-YE-qUc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vhf-YE-qUc"/>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="KDl-xY-QwX" id="NWJ-eh-rbs"/>

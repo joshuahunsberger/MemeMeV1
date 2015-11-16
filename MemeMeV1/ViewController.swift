@@ -214,7 +214,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Save meme and dismiss activity view controller
         shareController.completionWithItemsHandler = {(activityType: String?, completed: Bool, returnedItems: [AnyObject]?, activityError: NSError?) in
-            let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imagePickerView.image!, memeImage: imageMacro)
+            // Removing variable name temporarily since nothing is done with Meme object to avoid Xcode issue warning
+            _ = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imagePickerView.image!, memeImage: imageMacro)
             self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         }
         self.navigationController?.presentViewController(shareController, animated: true, completion: nil)
