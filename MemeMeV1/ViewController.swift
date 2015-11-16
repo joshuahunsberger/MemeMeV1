@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     // Set default text macro style attributes
     let memeTextAttributes = [
@@ -123,9 +124,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    /* Meme saving functions */
+    
+    /**
+        Saves the image and text field portions of the view as a single image
+
+        - Returns: A UIImage of the complete image macro
+    */
+    func generateImageMacro() -> UIImage {
+        
+        // Hide toolbar, so it is not in saved image
+        toolbar.hidden = true
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // Unhide the toolbar after capturing the image
+        toolbar.hidden = false
+
+        return memedImage
+    }
+    
     /* Interface Builder Action functions */
     
-    // Display UIImagePicker for the photo library
+    /**
+        Displays UIImagePicker for the photo library
+    */
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -133,7 +159,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    // Display UIImagePicker with the source as the camera
+    // Displays UIImagePicker with the source as the camera
     @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
