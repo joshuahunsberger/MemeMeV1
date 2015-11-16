@@ -36,6 +36,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         topTextField.delegate = memeMeTextFieldDelegate
         bottomTextField.delegate = memeMeTextFieldDelegate
+        
+        // Share button disabled until image selected
+        shareButton.enabled = false
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -82,6 +85,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
         }
+        
+        // Enable share button
+        shareButton.enabled = true
         
         // Dismiss image picker
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -172,6 +178,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         return imageMacro
     }
+    
     
     /* Interface Builder Action functions */
     
