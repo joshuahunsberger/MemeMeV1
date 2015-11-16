@@ -124,11 +124,18 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="hLA-hD-OLL"/>
+                    <navigationItem key="navigationItem" id="hLA-hD-OLL">
+                        <barButtonItem key="leftBarButtonItem" title="Share" id="PdF-8w-TZ6">
+                            <connections>
+                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="YdH-kG-R59"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="KDl-xY-QwX" id="NWJ-eh-rbs"/>
                         <outlet property="cameraButton" destination="kg3-Jk-Syo" id="iU6-sT-6tf"/>
                         <outlet property="imagePickerView" destination="rx0-Ol-5M4" id="1Bl-7N-IQY"/>
+                        <outlet property="shareButton" destination="PdF-8w-TZ6" id="D9S-eH-fAX"/>
                         <outlet property="toolbar" destination="bwW-gr-84i" id="uDK-va-or6"/>
                         <outlet property="topTextField" destination="uk3-mF-f6q" id="3kv-WN-biH"/>
                     </connections>

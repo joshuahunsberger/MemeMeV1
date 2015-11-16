@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    // Define IBOutlet variables
+    // Define Interface Builder Outlet variables
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     // Set default text macro style attributes
     let memeTextAttributes = [
@@ -25,7 +26,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName : -3.0,  // A negative value allows displaying both a fill and stroke
     ]
     
-    // Text field delegate
+    // Instantiate the text field delegate
     let memeMeTextFieldDelegate = MemeMeTextFieldDelegate()
     
     /* Life cycle functions */
@@ -72,6 +73,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /* ImagePickerController functions */
     
+    /**
+        Sets the imagePickerView's image to the image selected in the modal image
+        chooser
+    */
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // Get original image and display it in the imagePickerView
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -82,7 +87,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // Fuction called when image picker is cancelled
+    /**
+        Dismisses the image picker
+    */
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // Dismiss the image picker
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -91,33 +98,50 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     /* Keyboard shifting functions */
     
-    // Function to call when notification triggered
+    /**
+        Moves the view up when beginning editing the bottom text field.
+    
+        This method is called when the UIKeyboardWillShowNotification is triggered
+    */
     func keyboardWillShow(notification: NSNotification){
         if(bottomTextField.editing){
             view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
+    /**
+        Moves the view back down when finished editing the bottom text field.
+     
+        This method is called when the UIKeyboardWillHideNotification is triggered
+    */
     func keyboardWillHide(notification: NSNotification){
         if(bottomTextField.editing){
             view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
-    // Function to get height of keyboard
+    /**
+        Gets the height of the keyboard
+     
+        - Returns: height of keyboard as CGFloat
+    */
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.CGRectValue().height
     }
     
-    // Function to set up keyboard notification subscription
+    /** 
+        Sets up keyboard notification subscription
+    */
     func subscribeToKeyboardNotifications(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
 
-    // Function to tear down keyboard notification subscription
+    /** 
+        Tears down keyboard notification subscription
+    */
     func unsubscribeFromKeyboardNotifications(){
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
@@ -161,12 +185,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    // Displays UIImagePicker with the source as the camera
+    /** 
+        Displays UIImagePicker with the source as the camera
+    */
     @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    /**
+        Displays options to the user to share the image macro "meme"
+    */
+    @IBAction func shareMeme(sender: UIBarButtonItem) {
+    
     }
 }
 
