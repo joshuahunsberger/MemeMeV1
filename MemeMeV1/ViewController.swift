@@ -56,15 +56,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Center text in text fields
         topTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.textAlignment = NSTextAlignment.Center
-        
-        // Set default text for the labels
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        
-        // Set text fields to clear when selected
-        topTextField.clearsOnBeginEditing = true
-        bottomTextField.clearsOnBeginEditing = true
-        
     }
     
     override func viewWillDisappear(animated: Bool) {

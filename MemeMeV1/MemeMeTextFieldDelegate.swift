@@ -18,4 +18,13 @@ class MemeMeTextFieldDelegate: NSObject, UITextFieldDelegate {
         return true
     }
     
+    /**
+        Clear the text field if default text ("TOP" or "BOTTOM")
+    */
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if(textField.text == "TOP" || textField.text == "BOTTOM"){
+            textField.text = ""
+        }
+    }
+    
 }
