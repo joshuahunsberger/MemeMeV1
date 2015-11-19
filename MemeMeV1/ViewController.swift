@@ -95,14 +95,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     /* Keyboard shifting functions */
     
     /**
-        Moves the view up when beginning editing the bottom text field.
+        Moves the view up when beginning editing the bottom text field and the view is not already shifted up.
+    
+        Calculating the delta between the bottom of the view (should be <= 0) and the keyboard height will 
+        account for rotating the screen with the keyboard open and toggling the QuickType bar.
     
         This method is called when the UIKeyboardWillShowNotification is triggered
     */
     func keyboardWillShow(notification: NSNotification){
         
-        if(bottomTextField.editing){
-            view.frame.origin.y -= getKeyboardHeight(notification)
+        if(bottomTextField.editing /*&& view.frame.origin.y == 0*/){
+            // Get change in keyboard height
+            let delta = getKeyboardHeight(notification) + view.frame.origin.y
+            view.frame.origin.y -= delta
         }
     }
     
