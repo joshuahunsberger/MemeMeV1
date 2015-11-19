@@ -101,8 +101,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     */
     func keyboardWillShow(notification: NSNotification){
         
-        // TODO: Handle adjusting QuickType suggestion bar
-        // Don't shift up keyboard if already shifted up
         if(bottomTextField.editing){
             view.frame.origin.y -= getKeyboardHeight(notification)
         }
