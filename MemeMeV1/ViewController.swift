@@ -223,5 +223,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.navigationController?.presentViewController(shareController, animated: true, completion: nil)
         
     }
+    
+    /**
+        Clears the image and resets the top and bottom labels
+    */
+    @IBAction func cancelMeme(sender: UIBarButtonItem) {
+        imagePickerView.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+    }
 }
 

@@ -94,7 +94,11 @@
                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="YdH-kG-R59"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vhf-YE-qUc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="vhf-YE-qUc">
+                            <connections>
+                                <action selector="cancelMeme:" destination="BYZ-38-t0r" id="W9u-DC-ZII"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="KDl-xY-QwX" id="NWJ-eh-rbs"/>
