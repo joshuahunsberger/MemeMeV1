@@ -111,7 +111,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func keyboardWillShow(notification: NSNotification){
         
         // TODO: Handle adjusting QuickType suggestion bar
-        
+        // Don't shift up keyboard if already shifted up
         if(bottomTextField.editing){
             view.frame.origin.y -= getKeyboardHeight(notification)
         }
@@ -165,7 +165,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     */
     func generateImageMacro() -> UIImage {
         
-        // Hide toolbar and navigation controller, so they are not in saved image
+        // Hide status bar, toolbar and navigation controller, so they are not in saved image
+        UIApplication.sharedApplication().statusBarHidden = true
         toolbar.hidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
@@ -174,7 +175,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imageMacro : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // Unhide the toolbar and navigation controller after capturing the image
+        // Unhide the status bar, toolbar and navigation controller after capturing the image
+        UIApplication.sharedApplication().statusBarHidden = false
         toolbar.hidden = false
         self.navigationController?.setNavigationBarHidden(false, animated: false)
 
