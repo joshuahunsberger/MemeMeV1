@@ -165,8 +165,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     */
     func generateImageMacro() -> UIImage {
         
-        // Hide status bar, toolbar and navigation controller, so they are not in saved image
-        UIApplication.sharedApplication().statusBarHidden = true
+        // Hide toolbar and navigation controller, so they are not in saved image
         toolbar.hidden = true
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
@@ -175,8 +174,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imageMacro : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // Unhide the status bar, toolbar and navigation controller after capturing the image
-        UIApplication.sharedApplication().statusBarHidden = false
+        // Unhide the toolbar and navigation controller after capturing the image
         toolbar.hidden = false
         self.navigationController?.setNavigationBarHidden(false, animated: false)
 
