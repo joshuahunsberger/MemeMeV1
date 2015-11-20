@@ -73,14 +73,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // Get original image and display it in the imagePickerView
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imagePickerView.image = image
+            imagePickerView.image = image
         }
         
         // Enable share button
         shareButton.enabled = true
         
         // Dismiss image picker
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     /**
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     */
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // Dismiss the image picker
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -159,18 +159,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     */
     func generateImageMacro() -> UIImage {
         
-        // Hide toolbar and navigation controller, so they are not in saved image
+        // Hide toolbar so it is not in saved image
         toolbar.hidden = true
-        //self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let imageMacro : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // Unhide the toolbar and navigation controller after capturing the image
+        // Unhide the toolbar after capturing the image
         toolbar.hidden = false
-        //self.navigationController?.setNavigationBarHidden(false, animated: false)
 
         return imageMacro
     }
@@ -185,7 +183,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     /** 
@@ -195,7 +193,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     /**
@@ -212,7 +210,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             _ = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imagePickerView.image!, memeImage: imageMacro)
             self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         }
-        self.navigationController?.presentViewController(shareController, animated: true, completion: nil)
+        navigationController?.presentViewController(shareController, animated: true, completion: nil)
         
     }
     
