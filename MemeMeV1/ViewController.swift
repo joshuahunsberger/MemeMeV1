@@ -204,8 +204,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Save meme and dismiss activity view controller
         shareController.completionWithItemsHandler = {(activityType: String?, completed: Bool, returnedItems: [AnyObject]?, activityError: NSError?) in
-            // Removing variable name temporarily since nothing is done with Meme object to avoid Xcode issue warning
-            _ = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imagePickerView.image!, memeImage: imageMacro)
+            // Check if user clicked the cancel button or otherwise failed to complete the share before saving Meme object
+            if(completed){
+                // Removing variable name temporarily since nothing is done with Meme object to avoid Xcode issue warning
+                _ = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imagePickerView.image!, memeImage: imageMacro)
+            }
             self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         }
         navigationController?.presentViewController(shareController, animated: true, completion: nil)
