@@ -15,12 +15,4 @@ struct Meme {
     // Image with overlaid text
     var memeImage : UIImage
     
-    // Initializer
-    init(topText: String, bottomText: String, originalImage: UIImage, memeImage: UIImage){
-        self.topText = topText
-        self.bottomText = bottomText
-        self.originalImage = originalImage
-        self.memeImage = memeImage
-    }
-    
 }
