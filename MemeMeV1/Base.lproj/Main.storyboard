@@ -39,9 +39,6 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="u90-PC-p8V"/>
                                 </items>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="325" width="600" height="75"/>
-                                </variation>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uk3-mF-f6q">
                                 <rect key="frame" x="0.0" y="139" width="600" height="17"/>
@@ -50,7 +47,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KDl-xY-QwX">
-                                <rect key="frame" x="0.0" y="483" width="600" height="17"/>
+                                <rect key="frame" x="0.0" y="473" width="600" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -60,24 +57,38 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bwW-gr-84i" secondAttribute="bottom" id="09K-t9-rC8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KDl-xY-QwX" secondAttribute="bottom" constant="100" id="0Wt-Sc-vgr">
+                                <variation key="heightClass=compact" constant="70"/>
+                            </constraint>
                             <constraint firstItem="rx0-Ol-5M4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5xs-7L-ckD"/>
                             <constraint firstItem="rx0-Ol-5M4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GLd-l9-IXW"/>
+                            <constraint firstItem="uk3-mF-f6q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="HnH-Ge-u28">
+                                <variation key="heightClass=compact" constant="25"/>
+                            </constraint>
                             <constraint firstItem="uk3-mF-f6q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="HqK-2f-xxp"/>
                             <constraint firstAttribute="trailing" secondItem="bwW-gr-84i" secondAttribute="trailing" id="IOk-7V-Qik"/>
                             <constraint firstItem="rx0-Ol-5M4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="P3a-hc-KvH"/>
                             <constraint firstItem="KDl-xY-QwX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TC5-6M-lx2"/>
                             <constraint firstItem="bwW-gr-84i" firstAttribute="top" secondItem="rx0-Ol-5M4" secondAttribute="bottom" id="XKD-e6-XNq"/>
                             <constraint firstItem="KDl-xY-QwX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cFt-PH-LgW"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KDl-xY-QwX" secondAttribute="bottom" constant="100" id="gug-eQ-IwI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KDl-xY-QwX" secondAttribute="bottom" constant="110" id="gug-eQ-IwI"/>
                             <constraint firstItem="bwW-gr-84i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xYm-7x-nkc"/>
                             <constraint firstItem="uk3-mF-f6q" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="yrh-Oa-QQq"/>
                             <constraint firstItem="uk3-mF-f6q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z88-hl-TgS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HnH-Ge-u28"/>
+                                <exclude reference="0Wt-Sc-vgr"/>
+                            </mask>
+                        </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <include reference="HqK-2f-xxp"/>
+                                <include reference="HnH-Ge-u28"/>
+                                <exclude reference="HqK-2f-xxp"/>
                                 <include reference="TC5-6M-lx2"/>
-                                <include reference="gug-eQ-IwI"/>
+                                <include reference="0Wt-Sc-vgr"/>
+                                <exclude reference="gug-eQ-IwI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">

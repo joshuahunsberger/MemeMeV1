@@ -161,7 +161,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Hide toolbar and navigation controller, so they are not in saved image
         toolbar.hidden = true
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
@@ -170,7 +170,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Unhide the toolbar and navigation controller after capturing the image
         toolbar.hidden = false
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        //self.navigationController?.setNavigationBarHidden(false, animated: false)
 
         return imageMacro
     }
