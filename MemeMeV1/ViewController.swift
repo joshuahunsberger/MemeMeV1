@@ -117,9 +117,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         This method is called when the UIKeyboardWillHideNotification is triggered
     */
     func keyboardWillHide(notification: NSNotification){
-        if(bottomTextField.editing){
-            view.frame.origin.y += getKeyboardHeight(notification)
-        }
+        view.frame.origin.y = 0
     }
     
     /**
